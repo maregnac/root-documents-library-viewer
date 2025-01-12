@@ -2,9 +2,9 @@
 
 ## Summary
 
-Short summary on functionality and used technologies.
+ SPFx WebPart allows to view graphic files (images, 3D-objects, PDF-files) in root document library of Sharepoint.
 
-[picture of the solution in action, if possible]
+https://github.com/maregnac/root-documents-library-viewer/blob/main/images/RDLV_01.png
 
 ## Used SharePoint Framework Version
 
