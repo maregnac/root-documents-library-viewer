@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "c-maregnac-root-documents-library-viewer-client-side-solution",
+    "id": "d64ee0dc-0e1e-4b3c-9afe-5a94e899e504",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "C:\\Maregnac\\root-documents-library-viewer description"
+      },
+      "longDescription": {
+        "default": "C:\\Maregnac\\root-documents-library-viewer description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "c-maregnac-root-documents-library-viewer Feature",
+        "description": "The feature that activates elements of the c-maregnac-root-documents-library-viewer solution.",
+        "id": "301585ab-9d58-4ee5-81f3-d955d2371590",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/c-maregnac-root-documents-library-viewer.sppkg"
+  }
+}

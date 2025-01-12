@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.18.2",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.24.0"
+    },
+    "version": "1.20.0",
+    "libraryName": "c-maregnac-root-documents-library-viewer",
+    "libraryId": "d64ee0dc-0e1e-4b3c-9afe-5a94e899e504",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "C:\\Maregnac\\root-documents-library-viewer",
+    "solutionShortDescription": "C:\\Maregnac\\root-documents-library-viewer description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
