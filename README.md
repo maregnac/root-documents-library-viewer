@@ -6,8 +6,6 @@
 
 https://github.com/maregnac/root-documents-library-viewer/blob/main/images/RDLV_01.png
 
-Video: https://github.com/maregnac/root-documents-library-viewer/blob/main/images/DocumentViewer.mp4
-
 ## Used SharePoint Framework Version
 
 ![version](https://img.shields.io/badge/version-1.20.0-green.svg)
