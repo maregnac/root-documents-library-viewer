@@ -70,7 +70,6 @@ export default class ImagesGallery extends React.Component<IImagesGalleryProps, 
             updateGallery(index);
         });
 
-        // Показываем первое изображение
         updateGallery(0);
     }
 

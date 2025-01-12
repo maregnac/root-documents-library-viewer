@@ -40,26 +40,22 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
   private initScene() {
     if (!this.mount.current) return;
 
-    // Scene setup
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xf0f0f0);
 
-    // Camera setup
     this.camera = new THREE.PerspectiveCamera(75, this.props.width / this.props.height, 0.1, 1000);
     this.camera.position.z = 5;
 
-    // Renderer setup
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setSize(this.props.width, this.props.height);
     this.mount.current.appendChild(this.renderer.domElement);
 
-    // Controls setup
+
     if (this.camera && this.renderer) {
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
       this.controls.enableDamping = true;
     }
 
-    // Lighting
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(1, 1, 1);
     this.scene.add(light);
@@ -104,7 +100,7 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
         });
         const mesh = new THREE.Mesh(geometry, material);
 
-        // Center the model
+
         geometry.computeBoundingBox();
         const center = new THREE.Vector3();
         geometry.boundingBox?.getCenter(center);
@@ -116,7 +112,7 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
         this.fitCameraToObject(geometry);
       },
       (xhr) => {
-        // Progress callback if needed
+
       },
       (error) => {
         console.error('Error loading STL:', error);
@@ -133,7 +129,6 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
       (object) => {
         if (!this.scene) return;
 
-        // Применяем материал ко всем частям объекта
         object.traverse((child) => {
           if (child instanceof THREE.Mesh) {
             child.material = new THREE.MeshPhongMaterial({
@@ -144,7 +139,7 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
           }
         });
 
-        // Центрируем объект
+
         const box = new THREE.Box3().setFromObject(object);
         const center = box.getCenter(new THREE.Vector3());
         object.position.sub(center);
@@ -152,11 +147,10 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
         this.scene.add(object);
         this.setState({ isLoading: false });
 
-        // Подгоняем камеру под размер объекта
         this.fitCameraToObject(object);
       },
       (xhr) => {
-        // Progress callback if needed
+
       },
       (error) => {
         console.error('Error loading OBJ:', error);
@@ -189,7 +183,6 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
 
         const group = new THREE.Group();
 
-        // Функция для обработки сущностей
         const processEntities = (entities: any[]) => {
           entities.forEach((entity: any) => {
             console.log('Processing entity:', entity);
@@ -227,7 +220,7 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
                   processEntities(block.entities);
                 }
 
-                // Применяем трансформации
+
                 if (entity.position) {
                   blockGroup.position.set(
                     entity.position.x || 0,
@@ -253,10 +246,10 @@ export default class ThreeJsViewer extends React.Component<IThreeJsViewerProps, 
           });
         };
 
-        // Обрабатываем все сущности
+
         processEntities(dxf.entities);
 
-        // Центрируем и добавляем группу
+
         const box = new THREE.Box3().setFromObject(group);
         const center = box.getCenter(new THREE.Vector3());
         group.position.sub(center);

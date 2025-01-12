@@ -11,7 +11,12 @@
       ]
     }
   },
-  "externals": {},
+  "externals": {
+    "jquery": {
+      "path": "https://code.jquery.com/jquery-3.6.0.min.js",
+      "globalName": "jQuery"
+    }
+  },
   "localizedResources": {
     "RootDocumentLibraryViewerWebPartStrings": "lib/webparts/rootDocumentLibraryViewer/loc/{locale}.js"
   }

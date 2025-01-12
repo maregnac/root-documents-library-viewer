@@ -1,10 +1,9 @@
 import * as React from 'react';
-import 'jquery-ui/dist/themes/base/jquery-ui.min.css';
 import * as $ from 'jquery';
-import 'jquery-ui/ui/widgets/accordion';
+import 'jquery-ui-dist/jquery-ui';
+import 'jquery-ui-dist/jquery-ui.css';
 import { WebPartContext } from "@microsoft/sp-webpart-base";
 import ImagesGallery from './ImagesGallery';
-//import ThreeJsViewer from './ThreeJsViewer';
 import ModelsGallery from './ModelsGallery';
 import styles from './FilesBrowser.module.scss';
 import PDFsGallery from './PDFsGallery';
@@ -44,8 +43,6 @@ export default class FilesBrowser extends React.Component<IFilesBrowserProps, IF
         heightStyle: "content",
         animate: 300
       });
-
-      // Ensure the first panel is open
       setTimeout(() => {
         if (this.accordionRef.current) {
           ($(this.accordionRef.current) as any).accordion("option", "active", 0);
@@ -57,7 +54,6 @@ export default class FilesBrowser extends React.Component<IFilesBrowserProps, IF
   componentDidUpdate(prevProps: IFilesBrowserProps) {
     if (prevProps.dataSource !== this.props.dataSource && this.accordionRef.current) {
       ($(this.accordionRef.current) as any).accordion('refresh');
-      // Ensure first panel stays open after data update
       ($(this.accordionRef.current) as any).accordion("option", "active", 0);
     }
   }

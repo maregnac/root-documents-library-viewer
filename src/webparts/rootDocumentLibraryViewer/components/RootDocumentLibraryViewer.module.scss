@@ -1,6 +1,6 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
-.rootDocumentLibraryViewer {
+.documentsBrowser {
   overflow: hidden;
   padding: 1em;
   color: "[theme:bodyText, default: #323130]";
@@ -23,12 +23,170 @@
   a {
     text-decoration: none;
     color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+    color: var(--link); 
 
     &:hover {
       text-decoration: underline;
       color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+      color: var(--linkHovered); 
     }
   }
+}
+
+.tree-container {
+  padding: 10px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  
+  :global {
+    .tree-item {
+      cursor: pointer;
+      padding: 5px;
+      margin: 7.5px 0;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      background-color: #ffffff;
+      font-size: 14px;
+      
+      &:hover {
+        background-color: #f8f8f8;
+      }
+      
+      &.selected {
+        background-color: #ffffff;
+        
+        > .tree-item-content {
+          font-weight: bold;
+          
+          .item-text {
+            color: #000000;
+          }
+        }
+      }
+      
+      .expand-icon {
+        display: inline-block;
+        width: 12px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        margin-right: 5px;
+      }
+
+      .tree-item-content {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .tree-children {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.tree-item.expanded {
+  > .tree-children {
+    display: block;
+  }
+}
+
+.item-text {
+  flex: 1;
+}
+
+.empty-icon-space {
+  width: 20px;
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.leftPane {
+  width: 300px;
+  min-width: 200px;
+  max-width: 600px;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+}
+
+.rightPane {
+  flex: 1;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+:global {
+  .ui-resizable-e {
+    cursor: col-resize;
+    width: 7px;
+    right: -5px;
+    top: 0;
+    height: 100%;
+    background-color: #f0f0f0;
+    
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+.searchContainer {
+    padding: 10px;
+    padding-right: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    
+    &:focus {
+        outline: none;
+        border-color: #0078d4;
+        box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.1);
+    }
+    
+    &::placeholder {
+        color: #666;
+    }
+}
+
+.loadingContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+    color: #666;
+    font-size: 14px;
+    gap: 10px;
+}
+
+.loadingSpinner {
+    font-size: 36px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
